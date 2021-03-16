@@ -1,23 +1,14 @@
 package main
 
 import (
-	"fmt"
 )
 
-
-
 func main() {
-	fmt.Println("Legend Pricing: ")
 
-	three := 1000000
-	six := 2000000
-	ten := 30000000
-	LegendPricing(three, six, ten)
+	MetalLegendPricing(1000, 2000, 3000)
 	
-
 	}
-	//sum := myfunc.Add2(numbers)
-	//fmt.Println(sum)
+
 
 
 
