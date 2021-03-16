@@ -20,13 +20,6 @@ type Receiver struct {
 	logger *zap.SugaredLogger
 }
 
-// Request is the structure of the event we expect to receive.
-type Request struct {
-	ID          int64  `json:"id"`
-	Description string `json:"description"`
-	Tag         string `json:"tag"`
-}
-
 type PricingData struct {
 	Three int `json:"three"`
 	Six   int `json:"six"`
