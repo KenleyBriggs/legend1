@@ -2,6 +2,9 @@ package main
 
 import (
 	"context"
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
 	"net/http"
 
 	"github.com/kelseyhightower/envconfig"
@@ -24,6 +27,12 @@ type Request struct {
 	Tag         string `json:"tag"`
 }
 
+type PricingData struct {
+	Three int `json:"three"`
+	Six   int `json:"six"`
+	Ten   int `json:"ten"`
+}
+
 func main() {
 	ctx := context.Background()
 	r := Receiver{}
@@ -38,5 +47,18 @@ func main() {
 }
 
 func (recv *Receiver) getPricing(w http.ResponseWriter, r *http.Request) {
-	MetalLegendPricing(1000, 2000, 3000)
+	defer r.Body.Close()
+	body, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		fmt.Printf("Error occured reading body: %v", err)
+		return
+	}
+
+	i := &PricingData{}
+	if err := json.Unmarshal(body, i); err != nil {
+		log.Errorf("Error occured unmarsaling data: %v", err)
+		return
+	}
+
+	MetalLegendPricing(i.Three, i.Six, i.Ten)
 }
