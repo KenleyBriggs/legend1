@@ -19,6 +19,11 @@ import (
 	"github.com/triggermesh/knative-targets/pkg/apis/targets/v1alpha1"
 )
 
+
+type TsqlEvent struct {
+	Query string `json:"query"`
+}
+
 // NewTarget creates a Azure Sql target adapter
 func NewTarget(ctx context.Context, envAcc libadapter.EnvConfigAccessor, ceClient cloudevents.Client) libadapter.Adapter {
 	logger := logging.FromContext(ctx)
