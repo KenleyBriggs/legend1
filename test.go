@@ -7,7 +7,7 @@ import (
 )
 
 func DataBase() {
-	db, err := sql.Open("mysql", "root:486513@/pricing")
+	db, err := sql.Open("mysql", "root:***@/pricing")
 	if err != nil {
 		panic(err)
 	}
