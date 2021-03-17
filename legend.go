@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-//this function generates the pricng for the lengend system based on 3/12 6/12 and 10/12 pitches
+// this function generates the pricng for the lengend system based on 3/12 6/12 and 10/12 pitches
 func MetalLegendPricing(three int, six int, ten int) {
 
 	metal28GaTuffRib := ((three * 875) + (six * 905) + (ten * 935))

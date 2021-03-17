@@ -6,53 +6,83 @@ import (
 )
 
 func FormatCurrency(currency int) string {
-	ammountInt := currency                        //is the integer price
-	ammountStr := strconv.Itoa(ammountInt)        //converts the integer into a string
-	ammountArray := strings.Split(ammountStr, "") //splits the string into an array
+	// is the integer price
+	ammountInt := currency
+	// converts the integer into a string
+	ammountStr := strconv.Itoa(ammountInt)
+	// splits the string into an array
+	ammountArray := strings.Split(ammountStr, "")
 
-	length := len(ammountArray) //determines the length of the array
-	if length > 6 {             //accounts for the two decimal places and the first three integers
-		s := length - 5 //determines the place in the array to insert the comma
+	// determines the length of the array
+	length := len(ammountArray)
+	// accounts for the two decimal places and the first three integers
+	if length > 6 {
+		// determines the place in the array to insert the comma
+		s := length - 5
 
-		tempArray := insert(ammountArray, ",", s) //calls on the insert function that shifts the array and inserts the element
-		ammountArray = tempArray                  //replaces the original array
+		// calls on the insert function that shifts the array and inserts the element
+		tempArray := insert(ammountArray, ",", s)
+		// replaces the original array
+		ammountArray = tempArray
 	}
 
-	if length > 9 { //accounts for the two decimal places and the second three integers
-		s := length - 8 //determines the place in the array to insert the comma
+	// accounts for the two decimal places and the second three integers
+	if length > 9 {
+		// determines the place in the array to insert the comma
+		s := length - 8
 
-		tempArray := insert(ammountArray, ",", s) //calls on the insert function that shifts the array and inserts the element
-		ammountArray = tempArray                  //replaces the original array
+		// calls on the insert function that shifts the array and inserts the element
+		tempArray := insert(ammountArray, ",", s)
+		// replaces the original array
+		ammountArray = tempArray
 	}
 
-	if length > 13 { //accounts for the two decimal places and the third three integers
-		s := length - 11 //determines the place in the array to insert the comma
+	// accounts for the two decimal places and the third three integers
+	if length > 13 {
+		// determines the place in the array to insert the comma
+		s := length - 11
 
-		tempArray := insert(ammountArray, ",", s) //calls on the insert function that shifts the array and inserts the element
-		ammountArray = tempArray                  //replaces the original array
+		// calls on the insert function that shifts the array and inserts the element
+		tempArray := insert(ammountArray, ",", s)
+		// replaces the original array
+		ammountArray = tempArray
 	}
 
-	if length > 2 { //accounts for the two decimal places
-		s := len(ammountArray) - 2 //determines the place in the array to insert the period
+	// accounts for the two decimal places
+	if length > 2 {
+		// determines the place in the array to insert the period
+		s := len(ammountArray) - 2
 
-		tempArray := insert(ammountArray, ".", s) //calls on the insert function that shifts the array and inserts the element
-		ammountArray = tempArray                  //replaces the original array
+		// calls on the insert function that shifts the array and inserts the element
+		tempArray := insert(ammountArray, ".", s)
+		// replaces the original array
+		ammountArray = tempArray
 	}
-	if length > 2 { //accounts for the two decimal places and the first three integers
-		tempArray := ammountArray                       //sets temparray as ammountarray
-		tempArray = append([]string{"$"}, tempArray...) //appends a dollar sign to the front of the array
-		ammountArray = tempArray                        //replaces the original array
-	}
-	tempArray := stringconv(ammountArray) //converts the array back into a string to print
 
-	return tempArray //returns the temparray string
+	// accounts for the two decimal places and the first three integers
+	if length > 2 {
+		// sets temparray as ammountarray
+		tempArray := ammountArray
+		// appends a dollar sign to the front of the array
+		tempArray = append([]string{"$"}, tempArray...)
+		// replaces the original array
+		ammountArray = tempArray
+	}
+
+	// converts the array back into a string to print
+	tempArray := stringconv(ammountArray)
+
+	// returns the temparray string
+	return tempArray
 }
 
-func insert(a []string, c string, i int) []string { //insert function shifts the array and inserts the element
+// insert function shifts the array and inserts the element
+func insert(a []string, c string, i int) []string {
 	return append(a[:i], append([]string{c}, a[i:]...)...)
 }
 
-func stringconv(as []string) string { //stringconv function converts the array into a string
+// stringconv function converts the array into a string
+func stringconv(as []string) string {
 	result1 := strings.Join(as, "")
 	return result1
 }
