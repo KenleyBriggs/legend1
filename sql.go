@@ -19,7 +19,6 @@ var password string
 var database = "Legend"
 
 func DataBase() {
-<<<<<<< HEAD
 
 	var err error
 
@@ -43,9 +42,6 @@ func DataBase() {
 
 	ctx := context.Background()
 	err = db.PingContext(ctx)
-=======
-	db, err := sql.Open("mysql", "root:***@/pricing")
->>>>>>> 93766e18fac42532ce3dcf54e782fc3dadadffb3
 	if err != nil {
 		log.Fatal(err.Error())
 	}
@@ -152,10 +148,14 @@ func DataBase() {
             log.Fatal(err)
         }
         defer rows.Close()
-    }
+    }else {
+		fmt.Println("Invalid Entry Try Again")
+		DataBase()
+	}
+	
 }
 
-func CreateProduct(prod string, three int, six int, ten int) (int64, error) {
+func CreateProduct(prod string, three, six, ten int) (int64, error) {
 
 	ctx := context.Background()
 	var err error
