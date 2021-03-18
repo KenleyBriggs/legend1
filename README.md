@@ -20,5 +20,5 @@ curl -v "localhost:8080/pricing" \
 ```cmd
 curl -v "localhost:8080/insertrow" \
        -X POST \
-       -d '{"prodName":"bobs burgers","three":1000,"six":2000,"ten":3000}'
+       -d '{"prodName":"bobs burgers","three":300,"six":3,"ten":300}'
 ```
