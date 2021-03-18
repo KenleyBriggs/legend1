@@ -66,7 +66,7 @@ func main() {
 	}
 
 	ctx := context.Background()
-	err = db.PingContext(ctx)
+	err = a.db.PingContext(ctx)
 	if err != nil {
 		log.Fatal(err.Error())
 	}
