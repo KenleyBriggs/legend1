@@ -1,6 +1,6 @@
 module github.com/briggs/test
 
-go 1.16
+go 1.15
 
 //replace github.com/briggs/myfunc => ../myfunc
 
@@ -8,9 +8,10 @@ go 1.16
 
 require (
 	github.com/cloudevents/sdk-go/v2 v2.3.1 // indirect
-	github.com/denisenkom/go-mssqldb v0.9.0 // indirect
+	github.com/denisenkom/go-mssqldb v0.9.0
 	github.com/go-sql-driver/mysql v1.5.0 // indirect
+	github.com/prometheus/common v0.19.0
 	go.uber.org/zap v1.16.0 // indirect
-	golang.org/x/crypto v0.0.0-20210317152858-513c2a44f670 // indirect
+	golang.org/x/crypto v0.0.0-20210317152858-513c2a44f670
 	knative.dev/pkg v0.0.0-20210315160101-6a33a1ab29ac // indirect
 )
