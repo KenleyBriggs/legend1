@@ -1,6 +1,6 @@
 module github.com/briggs/test
 
-go 1.16
+go 1.15
 
 //replace github.com/briggs/myfunc => ../myfunc
 
